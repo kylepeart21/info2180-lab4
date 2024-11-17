@@ -65,7 +65,6 @@ $superheroes = [
 $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 
 if ($query === '') {
-    // Display the full list of superheroes if no query is provided
     echo '<ul>';
     foreach ($superheroes as $superhero) {
         echo '<li>' . htmlspecialchars($superhero['alias']) . '</li>';
@@ -75,7 +74,6 @@ if ($query === '') {
     $found = false;
     foreach ($superheroes as $superhero) {
         if (strcasecmp($superhero['name'], $query) === 0 || strcasecmp($superhero['alias'], $query) === 0) {
-            // Display superhero details
             echo '<div class="superhero-details">';
             echo '<h3 class="superhero-name">' . htmlspecialchars($superhero['alias']) . '</h3>';
             echo '<h4 class="superhero-aka">a.k.a ' . htmlspecialchars($superhero['name']) . '</h4>';
@@ -87,7 +85,6 @@ if ($query === '') {
     }
 
     if (!$found) {
-        // If no superhero matches the query, display a left-aligned "not found" message
         echo '<p class="not-found">SUPERHERO NOT FOUND</p>';
     }
 }
